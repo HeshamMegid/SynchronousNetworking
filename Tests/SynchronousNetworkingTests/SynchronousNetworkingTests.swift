@@ -64,7 +64,7 @@ final class SynchronousNetworkingTests: XCTestCase {
 
 #if os(Linux)
 extension SynchronousNetworkingTests {
-    static var allTests : [(String, SynchronousNetworkingTests -> () throws -> Void)] {
+    static var allTests : [(String, (SynchronousNetworkingTests) -> () throws -> Void)] {
         return [
             ("testQueryStringCreation", testQueryStringCreation),
             ("testQueryStringCreationWithSpecialCharacters", testQueryStringCreationWithSpecialCharacters),
