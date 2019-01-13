@@ -63,8 +63,8 @@ final class SynchronousNetworkingTests: XCTestCase {
 }
 
 #if os(Linux)
-extension TodoTests {
-    static var allTests : [(String, TodoTests -> () throws -> Void)] {
+extension SynchronousNetworkingTests {
+    static var allTests : [(String, SynchronousNetworkingTests -> () throws -> Void)] {
         return [
             ("testQueryStringCreation", testQueryStringCreation),
             ("testQueryStringCreationWithSpecialCharacters", testQueryStringCreationWithSpecialCharacters),
