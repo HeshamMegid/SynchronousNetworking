@@ -3,32 +3,32 @@ version: 2
 jobs:
   build:
     docker:
-      - image: buildpack-deps:trusty
+      - image: swift:4.2
 
     working_directory: /Users/distiller/project/
     steps:
       - checkout
-      - run:
-          name: Install Swiftenv
-          command: git clone --depth 1 https://github.com/kylef/swiftenv.git ~/.swiftenv
-      - run:
-          name: Setting SWIFTENV_ROOT
-          command: echo 'export SWIFTENV_ROOT=$HOME/.swiftenv' >> $BASH_ENV
-      - run:
-          name: Setting PATH
-          command: echo 'export PATH=$SWIFTENV_ROOT/bin:$SWIFTENV_ROOT/shims:$PATH' >> $BASH_ENV
-      - run:
-          name: Install Dependencies
-          command: |
-            sudo apt-get update
-            sudo apt-get install -y zip
-            sudo apt-get install -y software-properties-common
-            sudo apt-add-repository "deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.8 main"
-            sudo apt-get update
-            sudo apt-get install -y clang libicu-dev
-      - run:
-          name: Install Swift
-          command: swiftenv install 4.2
+      # - run:
+      #     name: Install Swiftenv
+      #     command: git clone --depth 1 https://github.com/kylef/swiftenv.git ~/.swiftenv
+      # - run:
+      #     name: Setting SWIFTENV_ROOT
+      #     command: echo 'export SWIFTENV_ROOT=$HOME/.swiftenv' >> $BASH_ENV
+      # - run:
+      #     name: Setting PATH
+      #     command: echo 'export PATH=$SWIFTENV_ROOT/bin:$SWIFTENV_ROOT/shims:$PATH' >> $BASH_ENV
+      # - run:
+      #     name: Install Dependencies
+      #     command: |
+      #       sudo apt-get update
+      #       sudo apt-get install -y zip
+      #       sudo apt-get install -y software-properties-common
+      #       sudo apt-add-repository "deb http://llvm.org/apt/trusty/ llvm-toolchain-trusty-3.8 main"
+      #       sudo apt-get update
+      #       sudo apt-get install -y clang libicu-dev
+      # - run:
+      #     name: Install Swift
+      #     command: swiftenv install 4.2
       - run:
           name: Build
           command: swift build
