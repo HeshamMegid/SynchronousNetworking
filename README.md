@@ -1,3 +1,3 @@
 # SynchronousNetworking
 
-A description of this package.
+Simple synchronous cross-platform networking for Swift CLI apps.
