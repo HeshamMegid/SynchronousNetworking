@@ -59,5 +59,19 @@ final class SynchronousNetworkingTests: XCTestCase {
         
         XCTAssert(request.allHTTPHeaderFields == expectedHeader)
     }
-
+    
 }
+
+#if os(Linux)
+extension SynchronousNetworkingTests {
+    static var allTests : [(String, (SynchronousNetworkingTests) -> () throws -> Void)] {
+        return [
+            ("testQueryStringCreation", testQueryStringCreation),
+            ("testQueryStringCreationWithSpecialCharacters", testQueryStringCreationWithSpecialCharacters),
+            ("testQueryStringCreationWithPlusSign", testQueryStringCreationWithPlusSign),
+            ("testAddingHeaders", testAddingHeaders),
+            ("testPostRequestHasCorrectHeaders", testPostRequestHasCorrectHeaders)
+        ]
+    }
+}
+#endif

@@ -1,7 +1,7 @@
 import XCTest
 
-import SynchronousNetworkingTests
+@testable import SynchronousNetworkingTests
 
-var tests = [XCTestCaseEntry]()
-tests += SynchronousNetworkingTests.allTests()
-XCTMain(tests)
+XCTMain([
+    testCase(SynchronousNetworkingTests.allTests),
+])
