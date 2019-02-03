@@ -55,7 +55,7 @@ public struct SynchronousNetworking {
      - Parameter path A path relative to `baseUrl`.
      - Parameter parameters A dictionary of parameters that will get JSON-encoded.
      */
-    public func putSynchronously(path: String, parameters: Any) -> NetworkResponse {
+    public func putSynchronously(path: String, parameters: [String: Any]) -> NetworkResponse {
         let url = relativeUrlFor(path: path)
         let request = jsonBodyHttpRequest(url: url, method: "PUT", parameters: parameters)
         return performSynchronousRequest(request: request)
